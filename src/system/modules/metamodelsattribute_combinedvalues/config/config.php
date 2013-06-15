@@ -16,8 +16,5 @@
  * @filesource
  */
 
-$GLOBALS['METAMODELS']['attributes']['combinedvalues'] = array
-(
-	'class' => 'MetaModelAttributeCombinedValues',
-	'image' => 'system/modules/metamodelsattribute_combinedvalues/html/combinedvalues.png'
-);
+$GLOBALS['METAMODELS']['attributes']['combinedvalues']['class'] = 'MetaModelAttributeCombinedValues';
+$GLOBALS['METAMODELS']['attributes']['combinedvalues']['image'] = 'system/modules/metamodelsattribute_combinedvalues/html/combinedvalues.png';
