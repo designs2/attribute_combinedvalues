@@ -79,6 +79,7 @@ class MetaModelAttributeCombinedValues extends MetaModelAttributeSimple
 		}
 		
 		$strCombinedValues = vsprintf($this->get('combinedvalues_format'), $arrCombinedValues);
+		$strCombinedValues = trim($strCombinedValues);
 
 		// we need to fetch the attribute values for all attribs in the combinedvalues_fields and update the database and the model accordingly.
 		if ($this->get('isunique') && $this->searchFor($strCombinedValues))
