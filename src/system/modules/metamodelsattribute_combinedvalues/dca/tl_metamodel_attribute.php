@@ -42,6 +42,7 @@ $GLOBALS['TL_DCA']['tl_metamodel_attribute']['fields']['combinedvalues_fields'] 
 				'label'                 => &$GLOBALS['TL_LANG']['tl_metamodel_attribute']['field_attribute'],
 				'exclude'               => true,
 				'inputType'             => 'select',
+				'reference'             => &$GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values'],
 				'options_callback'      => array('TableMetaModelsAttributeCombinedValues','getAllAttributes'),
 					'eval' => array
 					(
@@ -66,5 +67,5 @@ $GLOBALS['TL_DCA']['tl_metamodel_attribute']['fields']['combinedvalues_format'] 
 	'label'                   => &$GLOBALS['TL_LANG']['tl_metamodel_attribute']['combinedvalues_format'],
 	'exclude'                 => true,
 	'inputType'               => 'text',
-	'eval'                    => array('tl_class'=>'long'),
+	'eval'                    => array('mandatory' => true, 'tl_class'=>'long'),
 );

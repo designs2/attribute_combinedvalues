@@ -74,10 +74,18 @@ class MetaModelAttributeCombinedValues extends MetaModelAttributeSimple
 		$arrCombinedValues = '';
 		foreach (deserialize($this->get('combinedvalues_fields')) as $strAttribute)
 		{
-			$arrValues = $objItem->parseAttribute($strAttribute['field_attribute'], 'text', null);
-			$arrCombinedValues[] = $arrValues['text'];
+			if ($this->isMetaField($strAttribute['field_attribute']))
+			{
+				$strField            = $strAttribute['field_attribute'];
+				$arrCombinedValues[] = $objItem->get($strField);
+			}
+			else
+			{
+				$arrValues           = $objItem->parseAttribute($strAttribute['field_attribute'], 'text', null);
+				$arrCombinedValues[] = $arrValues['text'];
+			}
 		}
-		
+
 		$strCombinedValues = vsprintf($this->get('combinedvalues_format'), $arrCombinedValues);
 		$strCombinedValues = trim($strCombinedValues);
 
@@ -93,4 +101,24 @@ class MetaModelAttributeCombinedValues extends MetaModelAttributeSimple
 		$this->setDataFor(array($objItem->get('id') => $strCombinedValues));
 		$objItem->set($this->getColName(), $strCombinedValues);
 	}
+
+	/**
+	 * Check if we have a metafield from metatmodels.
+	 * 
+	 * @param string $strField The selected value.
+	 * 
+	 * @return boolean True => Yes we have | False => nope.
+	 */
+	protected function isMetaField($strField)
+	{
+		$strField = trim($strField);
+
+		if (in_array($strField, $GLOBALS['METAMODELS_SYSTEM_COLUMNS']))
+		{
+			return true;
+		}
+
+		return false;
+	}
+
 }

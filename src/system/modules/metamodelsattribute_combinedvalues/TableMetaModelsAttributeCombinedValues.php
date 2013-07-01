@@ -33,31 +33,39 @@ class TableMetaModelsAttributeCombinedValues extends TableMetaModel
 	 */
 	public function getAllAttributes()
 	{
-		$intID = $this->Input->get('id');
-		$intPID = $this->Input->get('pid');
+		$intID	 = $this->Input->get('id');
+		$intPID	 = $this->Input->get('pid');
 
 		$arrReturn = array();
+
+		// Add meta fields.
+		$arrReturn['meta'] = $GLOBALS['METAMODELS_SYSTEM_COLUMNS'];
 
 		if (empty($intPID))
 		{
 			$objResult = $this->Database
-				->prepare('SELECT pid FROM tl_metamodel_attribute WHERE id=?')
-				->limit(1)
-				->execute($intID);
+					->prepare('SELECT pid FROM tl_metamodel_attribute WHERE id=?')
+					->limit(1)
+					->execute($intID);
 
 			if ($objResult->numRows == 0)
 			{
 				return $arrReturn;
 			}
+
 			$objMetaModel = MetaModelFactory::byId($objResult->pid);
-		} else {
+		}
+		else
+		{
 			$objMetaModel = MetaModelFactory::byId($intPID);
 		}
 
 		foreach ($objMetaModel->getAttributes() as $objAttribute)
 		{
-			$arrReturn[$objAttribute->getColName()] = $objAttribute->getName();
+			$arrReturn['attributes'][$objAttribute->getColName()] = sprintf('%s (%s)', $objAttribute->getName(), str_replace('MetaModelAttribute', '', get_class($objAttribute)));
 		}
+
 		return $arrReturn;
 	}
+
 }
