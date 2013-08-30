@@ -15,4 +15,4 @@
  */
 
 trigger_error('Usage of deprecated '. __FILE__, E_USER_DEPRECATED);
-class_alias('MetaModels\Dca\AttributeCombinedValues', 'TableMetaModelsAttributeCombinedValues');
+class_alias('MetaModels\Attribute\CombinedValues\CombinedValues', 'MetaModelAttributeCombinedValues');

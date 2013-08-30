@@ -16,5 +16,9 @@
  * @filesource
  */
 
-$GLOBALS['METAMODELS']['attributes']['combinedvalues']['class'] = 'MetaModelAttributeCombinedValues';
+$GLOBALS['METAMODELS']['attributes']['combinedvalues']['class'] = 'MetaModels\Attribute\CombinedValues\CombinedValues';
 $GLOBALS['METAMODELS']['attributes']['combinedvalues']['image'] = 'system/modules/metamodelsattribute_combinedvalues/html/combinedvalues.png';
+
+// non composerized Contao 2.X autoload support.
+$GLOBALS['MM_AUTOLOAD'][] = dirname(__DIR__);
+$GLOBALS['MM_AUTOLOAD'][] = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'deprecated';

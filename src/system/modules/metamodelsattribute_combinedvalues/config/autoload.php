@@ -21,8 +21,12 @@
  */
 ClassLoader::addClasses(array
 (
-	'MetaModelAttributeCombinedValues'        => 'system/modules/metamodelsattribute_combinedvalues/MetaModelAttributeCombinedValues.php',
-	'TableMetaModelsAttributeCombinedValues'  => 'system/modules/metamodelsattribute_combinedvalues/TableMetaModelsAttributeAlias.php',
+	'MetaModels\Attribute\CombinedValues\CombinedValues' => 'system/modules/metamodelsattribute_combinedvalues/MetaModels/Attribute/CombinedValues/CombinedValues.php',
+	'MetaModels\Dca\AttributeCombinedValues'             => 'system/modules/metamodelsattribute_combinedvalues/MetaModels/Dca/AttributeCombinedValues.php',
+
+
+	'MetaModelAttributeCombinedValues'        => 'system/modules/metamodelsattribute_combinedvalues/deprecated/MetaModelAttributeCombinedValues.php',
+	'TableMetaModelsAttributeCombinedValues'  => 'system/modules/metamodelsattribute_combinedvalues/deprecated/TableMetaModelsAttributeCombinedValues.php',
 ));
 
 

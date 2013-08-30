@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The MetaModels extension allows the creation of multiple collections of custom items,
  * each with its own unique set of selectable attributes, with attribute extendability.
@@ -16,6 +15,10 @@
  * @filesource
  */
 
+namespace MetaModels\Attribute\CombinedValues;
+
+use MetaModels\Attribute\BaseSimple;
+
 /**
  * This is the MetaModelAttribute class for handling combined values.
  *
@@ -24,14 +27,19 @@
  * @author     Christian Schiffler <c.schiffler@cyberspectrum.de>
  * @author     Stefan Heimes <cms@men-at-work.de>
  */
-class MetaModelAttributeCombinedValues extends MetaModelAttributeSimple
+class CombinedValues extends BaseSimple
 {
-
+	/**
+	 * {@inheritdoc}
+	 */
 	public function getSQLDataType()
 	{
 		return 'varchar(255) NOT NULL default \'\'';
 	}
 
+	/**
+	 * {@inheritdoc}
+	 */
 	public function getAttributeSettingNames()
 	{
 		return array_merge(parent::getAttributeSettingNames(), array(
@@ -46,6 +54,9 @@ class MetaModelAttributeCombinedValues extends MetaModelAttributeSimple
 		));
 	}
 
+	/**
+	 * {@inheritdoc}
+	 */
 	public function getFieldDefinition($arrOverrides = array())
 	{
 		$arrFieldDef = parent::getFieldDefinition($arrOverrides);
@@ -104,9 +115,9 @@ class MetaModelAttributeCombinedValues extends MetaModelAttributeSimple
 
 	/**
 	 * Check if we have a metafield from metatmodels.
-	 * 
+	 *
 	 * @param string $strField The selected value.
-	 * 
+	 *
 	 * @return boolean True => Yes we have | False => nope.
 	 */
 	protected function isMetaField($strField)
