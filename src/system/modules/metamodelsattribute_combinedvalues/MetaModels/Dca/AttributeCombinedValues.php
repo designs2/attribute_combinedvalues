@@ -36,8 +36,8 @@ class AttributeCombinedValues
 	 */
 	public function getAllAttributes()
 	{
-		$intID	 = \Input::getInstance()->get('id');
-		$intPID	 = \Input::getInstance()->get('pid');
+		$intID  = \Input::getInstance()->get('id');
+		$intPID = \Input::getInstance()->get('pid');
 
 		$arrReturn = array();
 
@@ -65,7 +65,22 @@ class AttributeCombinedValues
 
 		foreach ($objMetaModel->getAttributes() as $objAttribute)
 		{
-			$arrReturn['attributes'][$objAttribute->getColName()] = sprintf('%s (%s)', $objAttribute->getName(), str_replace('MetaModelAttribute', '', get_class($objAttribute)));
+			// Prevent recursion!
+			if ($objAttribute->get('id') == $intID)
+			{
+				continue;
+			}
+
+			if (isset($GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions'][$objAttribute->get('type')]))
+			{
+				$strType = $GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions'][$objAttribute->get('type')];
+			}
+			else
+			{
+				$strType = get_class($objAttribute);
+			}
+
+			$arrReturn['attributes'][$objAttribute->getColName()] = sprintf('%s (%s)', $objAttribute->getName(), $strType);
 		}
 
 		return $arrReturn;
