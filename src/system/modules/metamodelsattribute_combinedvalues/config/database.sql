@@ -14,5 +14,5 @@
 CREATE TABLE `tl_metamodel_attribute` (
   `combinedvalues_fields` blob NULL,
   `combinedvalues_format` text NULL,
-  `force_combinedvalues` char(1) NOT NULL default '',
+  `force_combinedvalues` char(1) NOT NULL default ''
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
