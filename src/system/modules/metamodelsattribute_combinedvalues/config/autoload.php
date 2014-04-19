@@ -17,20 +17,6 @@
  */
 
 /**
- * Register the classes
- */
-ClassLoader::addClasses(array
-(
-	'MetaModels\Attribute\CombinedValues\CombinedValues' => 'system/modules/metamodelsattribute_combinedvalues/MetaModels/Attribute/CombinedValues/CombinedValues.php',
-	'MetaModels\Dca\AttributeCombinedValues'             => 'system/modules/metamodelsattribute_combinedvalues/MetaModels/Dca/AttributeCombinedValues.php',
-
-
-	'MetaModelAttributeCombinedValues'        => 'system/modules/metamodelsattribute_combinedvalues/deprecated/MetaModelAttributeCombinedValues.php',
-	'TableMetaModelsAttributeCombinedValues'  => 'system/modules/metamodelsattribute_combinedvalues/deprecated/TableMetaModelsAttributeCombinedValues.php',
-));
-
-
-/**
  * Register the templates
  */
 TemplateLoader::addFiles(array
