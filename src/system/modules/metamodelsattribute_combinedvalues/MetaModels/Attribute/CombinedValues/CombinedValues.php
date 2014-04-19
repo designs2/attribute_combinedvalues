@@ -117,7 +117,7 @@ class CombinedValues extends BaseSimple
 	}
 
 	/**
-	 * Check if we have a metafield from metatmodels.
+	 * Check if we have a meta field from metamodels.
 	 *
 	 * @param string $strField The selected value.
 	 *
@@ -134,5 +134,4 @@ class CombinedValues extends BaseSimple
 
 		return false;
 	}
-
 }
