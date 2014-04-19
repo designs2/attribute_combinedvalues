@@ -63,7 +63,7 @@ class CombinedValues extends BaseSimple
 
 		$arrFieldDef['inputType'] = 'text';
 
-		// we do not need to set mandatory, as we will automatically update our value when isunique is given.
+		// We do not need to set mandatory, as we will automatically update our value when isunique is given.
 		if ($this->get('isunique'))
 		{
 			$arrFieldDef['eval']['mandatory'] = false;
@@ -76,7 +76,7 @@ class CombinedValues extends BaseSimple
 	 */
 	public function modelSaved($objItem)
 	{
-		// combined values already defined and no update forced, get out!
+		// Combined values already defined and no update forced, get out!
 		if ($objItem->get($this->getColName()) && (!$this->get('force_combinedvalues')))
 		{
 			return;
@@ -100,13 +100,16 @@ class CombinedValues extends BaseSimple
 		$strCombinedValues = vsprintf($this->get('combinedvalues_format'), $arrCombinedValues);
 		$strCombinedValues = trim($strCombinedValues);
 
-		// we need to fetch the attribute values for all attribs in the combinedvalues_fields and update the database and the model accordingly.
 		if ($this->get('isunique') && $this->searchFor($strCombinedValues))
 		{
-			$intCount = 1;
-			// ensure uniqueness.
-			while (count($this->searchFor($strCombinedValues . ' (' . (++$intCount) . ')')) > 0){}
-			$strCombinedValues = $strCombinedValues . ' (' . $intCount . ')';
+			// Ensure uniqueness.
+			$strBaseValue = $strCombinedValues;
+			$arrIds       = array($objItem->get('id'));
+			$intCount     = 2;
+			while (array_diff($this->searchFor($strCombinedValues), $arrIds))
+			{
+				$strCombinedValues = $strBaseValue . ' (' . ($intCount++) . ')';
+			}
 		}
 
 		$this->setDataFor(array($objItem->get('id') => $strCombinedValues));

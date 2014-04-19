@@ -58,7 +58,7 @@ $GLOBALS['TL_DCA']['tl_metamodel_attribute']['fields']['force_combinedvalues'] =
 	'label'                   => &$GLOBALS['TL_LANG']['tl_metamodel_attribute']['force_combinedvalues'],
 	'exclude'                 => true,
 	'inputType'               => 'checkbox',
-	'eval'                    => array('tl_class'=>'w50'),
+	'eval'                    => array('tl_class' => 'w50'),
 );
 
 $GLOBALS['TL_DCA']['tl_metamodel_attribute']['fields']['combinedvalues_format'] = array
@@ -66,5 +66,5 @@ $GLOBALS['TL_DCA']['tl_metamodel_attribute']['fields']['combinedvalues_format'] 
 	'label'                   => &$GLOBALS['TL_LANG']['tl_metamodel_attribute']['combinedvalues_format'],
 	'exclude'                 => true,
 	'inputType'               => 'text',
-	'eval'                    => array('mandatory' => true, 'tl_class'=>'long'),
+	'eval'                    => array('mandatory' => true, 'tl_class' => 'long'),
 );
