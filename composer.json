@@ -53,7 +53,7 @@
 	},
 	"autoload": {
 		"psr-0": {
-			"MetaModels": "src/system/modules/metamodelsattribute_checkbox"
+			"MetaModels": "src/system/modules/metamodelsattribute_combinedvalues"
 		}
 	},
 	"extra":{
