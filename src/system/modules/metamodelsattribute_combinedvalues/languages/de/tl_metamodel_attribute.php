@@ -8,7 +8,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2013-07-10T12:11:22+02:00
+ * last-updated: 2014-05-08T08:16:21+02:00
  */
 
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['combinedvalues_fields']['0']    = 'Felder';
@@ -19,6 +19,10 @@ $GLOBALS['TL_LANG']['tl_metamodel_attribute']['field_attribute']               =
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['force_combinedvalues']['0']     = 'Aktualisierung erzwingen';
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['force_combinedvalues']['1']     = 'Auswählen, um eine Neuerstellung der kombinierten Werte erzwingen, wenn sich eines der abhängigen Felder ändert.';
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['attributes']   = 'Attribute';
+$GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['id']           = 'ID';
+$GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['meta']         = 'Metafelder';
+$GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['pid']          = 'PID';
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['sorting']      = 'Sortierung';
+$GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['tstamp']       = 'Zeitstempel';
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions']['combinedvalues'] = 'Kombinierte Einträge';
 
