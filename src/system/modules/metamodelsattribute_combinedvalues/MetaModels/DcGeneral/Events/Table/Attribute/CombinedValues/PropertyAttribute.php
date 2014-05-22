@@ -25,7 +25,7 @@ use MetaModels\Factory;
 /**
  * Handle events for tl_metamodel_attribute.combinedvalues_fields.field_attribute.
  */
-class CombinedValuesFields
+class PropertyAttribute
 	extends BaseSubscriber
 {
 	/**
