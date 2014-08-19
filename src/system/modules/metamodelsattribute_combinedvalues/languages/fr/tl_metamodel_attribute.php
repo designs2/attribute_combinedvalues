@@ -8,7 +8,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2013-05-13T23:12:25+02:00
+ * last-updated: 2013-07-10T10:08:12+02:00
  */
 
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['combinedvalues_fields']['0']    = 'Champs';
@@ -18,4 +18,7 @@ $GLOBALS['TL_LANG']['tl_metamodel_attribute']['combinedvalues_format']['1']    =
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['field_attribute']               = 'Attributs';
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['force_combinedvalues']['0']     = 'Forcer la regénération';
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['force_combinedvalues']['1']     = 'Cocher si vous voulez que les valeurs combinées soient régénérées à chaque fois que l\'un des champs dépendant est modifié.';
+$GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['attributes']   = 'Attributs';
+$GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['sorting']      = 'Tri';
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions']['combinedvalues'] = 'Valeurs combinées';
+
