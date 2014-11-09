@@ -127,11 +127,24 @@ class CombinedValues extends BaseSimple
 	{
 		$strField = trim($strField);
 
-		if (in_array($strField, $GLOBALS['METAMODELS_SYSTEM_COLUMNS']))
+		if (in_array($strField, $this->getMetaModelsSystemColumns()))
 		{
 			return true;
 		}
 
 		return false;
 	}
+
+    /**
+     * Returns the global MetaModels System Columns (replacement for super global access).
+     *
+     * @return mixed Global MetaModels System Columns
+     *
+     * @SuppressWarnings(PHPMD.Superglobals)
+     * @SuppressWarnings(PHPMD.CamelCaseVariableName)
+     */
+    protected function getMetaModelsSystemColumns()
+    {
+        return $GLOBALS['METAMODELS_SYSTEM_COLUMNS'];
+    }
 }

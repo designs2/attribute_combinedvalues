@@ -90,7 +90,7 @@ class PropertyAttribute
 
 		$result = array();
 		// Add meta fields.
-		$result['meta'] = $GLOBALS['METAMODELS_SYSTEM_COLUMNS'];
+		$result['meta'] = self::getMetaModelsSystemColumns();
 
 		// Fetch all attributes except for the current attribute.
 		foreach ($metaModel->getAttributes() as $attribute)
@@ -119,4 +119,17 @@ class PropertyAttribute
 
 		$event->setOptions($result);
 	}
+
+    /**
+     * Returns the global MetaModels System Columns (replacement for super global access).
+     *
+     * @return mixed Global MetaModels System Columns
+     *
+     * @SuppressWarnings(PHPMD.Superglobals)
+     * @SuppressWarnings(PHPMD.CamelCaseVariableName)
+     */
+    protected static function getMetaModelsSystemColumns()
+    {
+        return $GLOBALS['METAMODELS_SYSTEM_COLUMNS'];
+    }
 }
