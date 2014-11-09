@@ -20,4 +20,3 @@ $GLOBALS['TL_LANG']['tl_metamodel_attribute']['force_combinedvalues']['0']     =
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['force_combinedvalues']['1']     = 'Ελέγξτε αυτό , αν θέλετε το άθροισμα των τιμών που πρέπει να αναγεννηθεί κάθε φορά που κάποιο από τα πεδία που εξαρτώνται αλλάζει.';
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['attributes']   = ' Χαρακτηριστικά';
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions']['combinedvalues'] = 'Συνδυασμένες τιμές ';
-

@@ -11,6 +11,4 @@
  * last-updated: 2013-10-26T04:12:23+02:00
  */
 
-
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['sorting'] = 'Sortering';
-

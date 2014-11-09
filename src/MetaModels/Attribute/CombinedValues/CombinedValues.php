@@ -29,111 +29,103 @@ use MetaModels\Attribute\BaseSimple;
  */
 class CombinedValues extends BaseSimple
 {
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getSQLDataType()
-	{
-		return 'varchar(255) NOT NULL default \'\'';
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getSQLDataType()
+    {
+        return 'varchar(255) NOT NULL default \'\'';
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getAttributeSettingNames()
-	{
-		return array_merge(parent::getAttributeSettingNames(), array(
-			'combinedvalues_fields',
-			'combinedvalues_format',
-			'force_combinedvalues',
-			'isunique',
-			'mandatory',
-			'filterable',
-			'searchable',
-			'sortable'
-		));
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getAttributeSettingNames()
+    {
+        return array_merge(parent::getAttributeSettingNames(), array(
+            'combinedvalues_fields',
+            'combinedvalues_format',
+            'force_combinedvalues',
+            'isunique',
+            'mandatory',
+            'filterable',
+            'searchable',
+            'sortable'
+        ));
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getFieldDefinition($arrOverrides = array())
-	{
-		$arrFieldDef = parent::getFieldDefinition($arrOverrides);
+    /**
+     * {@inheritdoc}
+     */
+    public function getFieldDefinition($arrOverrides = array())
+    {
+        $arrFieldDef = parent::getFieldDefinition($arrOverrides);
 
-		$arrFieldDef['inputType'] = 'text';
+        $arrFieldDef['inputType'] = 'text';
 
-		// We do not need to set mandatory, as we will automatically update our value when isunique is given.
-		if ($this->get('isunique'))
-		{
-			$arrFieldDef['eval']['mandatory'] = false;
-		}
-		return $arrFieldDef;
-	}
+        // We do not need to set mandatory, as we will automatically update our value when isunique is given.
+        if ($this->get('isunique')) {
+            $arrFieldDef['eval']['mandatory'] = false;
+        }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function modelSaved($objItem)
-	{
-		// Combined values already defined and no update forced, get out!
-		if ($objItem->get($this->getColName()) && (!$this->get('force_combinedvalues')))
-		{
-			return;
-		}
+        return $arrFieldDef;
+    }
 
-		$arrCombinedValues = '';
-		foreach (deserialize($this->get('combinedvalues_fields')) as $strAttribute)
-		{
-			if ($this->isMetaField($strAttribute['field_attribute']))
-			{
-				$strField            = $strAttribute['field_attribute'];
-				$arrCombinedValues[] = $objItem->get($strField);
-			}
-			else
-			{
-				$arrValues           = $objItem->parseAttribute($strAttribute['field_attribute'], 'text', null);
-				$arrCombinedValues[] = $arrValues['text'];
-			}
-		}
+    /**
+     * {@inheritdoc}
+     */
+    public function modelSaved($objItem)
+    {
+        // Combined values already defined and no update forced, get out!
+        if ($objItem->get($this->getColName()) && (!$this->get('force_combinedvalues'))) {
+            return;
+        }
 
-		$strCombinedValues = vsprintf($this->get('combinedvalues_format'), $arrCombinedValues);
-		$strCombinedValues = trim($strCombinedValues);
+        $arrCombinedValues = '';
+        foreach (deserialize($this->get('combinedvalues_fields')) as $strAttribute) {
+            if ($this->isMetaField($strAttribute['field_attribute'])) {
+                $strField            = $strAttribute['field_attribute'];
+                $arrCombinedValues[] = $objItem->get($strField);
+            } else {
+                $arrValues           = $objItem->parseAttribute($strAttribute['field_attribute'], 'text', null);
+                $arrCombinedValues[] = $arrValues['text'];
+            }
+        }
 
-		if ($this->get('isunique') && $this->searchFor($strCombinedValues))
-		{
-			// Ensure uniqueness.
-			$strBaseValue = $strCombinedValues;
-			$arrIds       = array($objItem->get('id'));
-			$intCount     = 2;
-			while (array_diff($this->searchFor($strCombinedValues), $arrIds))
-			{
-				$strCombinedValues = $strBaseValue . ' (' . ($intCount++) . ')';
-			}
-		}
+        $strCombinedValues = vsprintf($this->get('combinedvalues_format'), $arrCombinedValues);
+        $strCombinedValues = trim($strCombinedValues);
 
-		$this->setDataFor(array($objItem->get('id') => $strCombinedValues));
-		$objItem->set($this->getColName(), $strCombinedValues);
-	}
+        if ($this->get('isunique') && $this->searchFor($strCombinedValues)) {
+            // Ensure uniqueness.
+            $strBaseValue = $strCombinedValues;
+            $arrIds       = array($objItem->get('id'));
+            $intCount     = 2;
+            while (array_diff($this->searchFor($strCombinedValues), $arrIds)) {
+                $strCombinedValues = $strBaseValue . ' (' . ($intCount++) . ')';
+            }
+        }
 
-	/**
-	 * Check if we have a meta field from metamodels.
-	 *
-	 * @param string $strField The selected value.
-	 *
-	 * @return boolean True => Yes we have | False => nope.
-	 */
-	protected function isMetaField($strField)
-	{
-		$strField = trim($strField);
+        $this->setDataFor(array($objItem->get('id') => $strCombinedValues));
+        $objItem->set($this->getColName(), $strCombinedValues);
+    }
 
-		if (in_array($strField, $this->getMetaModelsSystemColumns()))
-		{
-			return true;
-		}
+    /**
+     * Check if we have a meta field from metamodels.
+     *
+     * @param string $strField The selected value.
+     *
+     * @return boolean True => Yes we have | False => nope.
+     */
+    protected function isMetaField($strField)
+    {
+        $strField = trim($strField);
 
-		return false;
-	}
+        if (in_array($strField, $this->getMetaModelsSystemColumns())) {
+            return true;
+        }
+
+        return false;
+    }
 
     /**
      * Returns the global MetaModels System Columns (replacement for super global access).

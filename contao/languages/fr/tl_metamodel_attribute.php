@@ -21,4 +21,3 @@ $GLOBALS['TL_LANG']['tl_metamodel_attribute']['force_combinedvalues']['1']     =
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['attributes']   = 'Attributs';
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['sorting']      = 'Tri';
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions']['combinedvalues'] = 'Valeurs combinées';
-

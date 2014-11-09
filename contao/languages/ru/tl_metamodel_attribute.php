@@ -11,7 +11,6 @@
  * last-updated: 2013-10-26T04:12:23+02:00
  */
 
-
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['combinedvalues_fields']['0']    = 'Поля';
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['combinedvalues_fields']['1']    = 'Выберите один или несколько атрибутов для объединения.';
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['combinedvalues_format']['0']    = 'Форматы';
@@ -26,4 +25,3 @@ $GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['pid']          =
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['sorting']      = 'Сортировка';
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['tstamp']       = 'Отметка времени';
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions']['combinedvalues'] = 'Комбинированные значения';
-

@@ -34,4 +34,3 @@ $GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['varbase']      =
 
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['meta']         = 'Metafields';
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['attributes']   = 'Attributes';
-

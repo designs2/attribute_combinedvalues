@@ -27,4 +27,3 @@ $GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['tstamp']       =
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['varbase']      = 'Varbase';
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['vargroup']     = 'Vargroup';
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions']['combinedvalues'] = 'Kombinierte Einträge';
-

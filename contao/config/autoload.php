@@ -19,7 +19,6 @@
 /**
  * Register the templates
  */
-TemplateLoader::addFiles(array
-(
-	'mm_attr_combinedvalues'                  => 'system/modules/metamodelsattribute_combinedvalues/templates',
+TemplateLoader::addFiles(array(
+        'mm_attr_combinedvalues'                  => 'system/modules/metamodelsattribute_combinedvalues/templates',
 ));

@@ -17,10 +17,10 @@
  */
 
 $GLOBALS['METAMODELS']['attributes']['combinedvalues']['class'] =
-	'MetaModels\Attribute\CombinedValues\CombinedValues';
+    'MetaModels\Attribute\CombinedValues\CombinedValues';
 
 $GLOBALS['METAMODELS']['attributes']['combinedvalues']['image'] =
-	'system/modules/metamodelsattribute_combinedvalues/html/combinedvalues.png';
+    'system/modules/metamodelsattribute_combinedvalues/html/combinedvalues.png';
 
 $GLOBALS['TL_EVENTS'][\ContaoCommunityAlliance\Contao\EventDispatcher\Event\CreateEventDispatcherEvent::NAME][] =
-	'MetaModels\DcGeneral\Events\Table\Attribute\CombinedValues\PropertyAttribute::registerEvents';
+    'MetaModels\DcGeneral\Events\Table\Attribute\CombinedValues\PropertyAttribute::registerEvents';
