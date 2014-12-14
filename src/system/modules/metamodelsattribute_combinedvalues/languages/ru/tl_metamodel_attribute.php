@@ -8,7 +8,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2014-05-20T12:16:23+02:00
+ * last-updated: 2014-12-14T12:16:26+01:00
  */
 
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['combinedvalues_fields']['0']    = 'Поля';
@@ -24,5 +24,7 @@ $GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['meta']         =
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['pid']          = 'PID';
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['sorting']      = 'Сортировка';
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['tstamp']       = 'Отметка времени';
+$GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['varbase']      = 'Varbase';
+$GLOBALS['TL_LANG']['tl_metamodel_attribute']['select_values']['vargroup']     = 'Vargroup';
 $GLOBALS['TL_LANG']['tl_metamodel_attribute']['typeOptions']['combinedvalues'] = 'Комбинированные значения';
 
