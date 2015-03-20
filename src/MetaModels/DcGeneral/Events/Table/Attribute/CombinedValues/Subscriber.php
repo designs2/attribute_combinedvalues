@@ -112,6 +112,8 @@ class Subscriber extends BaseSubscriber
                 $attribute->get('type')
             );
         }
+
+        $event->setOptions($result);
     }
 
     /**
