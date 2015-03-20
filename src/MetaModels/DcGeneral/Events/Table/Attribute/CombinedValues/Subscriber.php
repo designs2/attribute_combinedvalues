@@ -61,10 +61,10 @@ class Subscriber extends BaseSubscriber
         }
 
         return
-            ($event->getEnvironment()->getDataDefinition()->getName() !== 'tl_metamodel_attribute')
-            || ($type !== 'combinedvalues')
-            || ($event->getPropertyName() !== 'combinedvalues_fields')
-            || ($event->getSubPropertyName() !== 'field_attribute');
+            ($event->getEnvironment()->getDataDefinition()->getName() === 'tl_metamodel_attribute')
+            && ($type === 'combinedvalues')
+            && ($event->getPropertyName() === 'combinedvalues_fields')
+            && ($event->getSubPropertyName() === 'field_attribute');
     }
 
     /**
@@ -76,7 +76,7 @@ class Subscriber extends BaseSubscriber
      */
     public function getOptions(GetOptionsEvent $event)
     {
-        if (self::isEventForMe($event)) {
+        if (!self::isEventForMe($event)) {
             return;
         }
 
