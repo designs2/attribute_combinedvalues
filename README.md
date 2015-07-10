@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/MetaModels/attribute_combinedvalues.svg?branch=tng)](https://travis-ci.org/MetaModels/attribute_combinedvalues)
+[![Build Status](https://travis-ci.org/MetaModels/attribute_combinedvalues.svg)](https://travis-ci.org/MetaModels/attribute_combinedvalues)
 [![Latest Version tagged](http://img.shields.io/github/tag/MetaModels/attribute_combinedvalues.svg)](https://github.com/MetaModels/attribute_combinedvalues/tags)
 [![Latest Version on Packagist](http://img.shields.io/packagist/v/MetaModels/attribute_combinedvalues.svg)](https://packagist.org/packages/MetaModels/attribute_combinedvalues)
 [![Installations via composer per month](http://img.shields.io/packagist/dm/MetaModels/attribute_combinedvalues.svg)](https://packagist.org/packages/MetaModels/attribute_combinedvalues)
